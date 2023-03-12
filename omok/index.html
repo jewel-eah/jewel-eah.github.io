@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="omok.css">
-    <title>omok</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap');
+      </style>
 </head>
 <body>
     <h1 id="title"></h1>
     <div id="gameContainer"></div>
-    <div id="btn-container"></div>
-    <button onclick="location.leload">게임 다시하기</button>
+    <div id="btn-container">
+          <button onclick="reload()">게임 다시하기</button>
+    </div>
+  
 
 
     <!-- hint :
         css 속성
          position : absolute 를 활용 -> 
         두 개의 맵을 겹쳐서 표현할 수 있음  -->
-        <script src="omok.js"></script>
+        <script type="text/javascript" src="omok.js"></script>
 </body>
 </html>

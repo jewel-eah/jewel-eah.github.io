@@ -1,94 +1,177 @@
+// 게임컨테이너 생성 
 const gameContainer = document.getElementById("gameContainer");
 const title = document.getElementById("title");
 
-title.innerText = "OMOK";
+title.innerText = "OMOK GAME";
 
+// 컨테이너 내 맵 생성 
 const map = document.createElement("div");
-map.className = "fakeMap";
+map.className = "map";
+const fakeMap= document.createAttribute("div");
+fakeMap.className = "fakkeMap";
 
-set
+let turn = 1;
+let size = 10;
+let win = 0;
 
-// let win = 0;
-// let turn = 1;
-// const size = 3;
+// 맵을위한 10x10 박스 생성 
+setMap();
+function setMap(){
+    for(let i=0; i<size; i++){
+        for(let j=0; j<size; j++){
+            const box = document.createElement("div");
 
-// setMap();
+            const id = `y${i}x${j}`;
+            box.setAttribute("id", id);
+            box.className = "box";
+            map.append(box);
 
-
-// function setMap(){
-//     for(let i = 0; i<size; i++){
-//         for(let j = 0; j<size; j++){
-//             const box = document.createElement("div");
-    
-//             const id = `y${i}x${j}`;
-//             box.setAttribute("id",id);
-//             box.className = "box";
-    
-//             map.appendChild(box);
-    
-//             box.addEventListener("click", e=> {
-//                 console.log(id);
-//             });
-    
-//             box.addEventListener("click", e=>{
-//                 if(e.target.innerText){
-//                     alert("이미 선택되었다!!!");
-//                     return;
-//                 }
-
-//                 box.innerHTML = turn === 1 ? "O" : "X";
-
-//                 if(box.innerHTML = turn === 1){
-//                     box.setAttribute("style", "background-color : white");
-//                 } else{
-//                     box.setAttribute("style", "background-color : yellow");
-//                 }
+            box.addEventListener("click", e =>{
+                console.log(id);
                 
-//                 checkHori();
+                if(box.innerText === ""){
+                    box.innerText = turn == 1 ? "⚫️" : "⚪️";
+                }
+                else {
+                    alert(`이미 선택된 자리입니다. `);
+                    return;
+                }
 
-//                 turn = turn === 1 ? 2 : 1;
-//             });
+                // 승리확인 
+                checkWin();
+                turn = turn === 1 ? 2 : 1 ;
+            })  
+            
+        
+        }
+    }
+    gameContainer.append(map);
+}
 
-//         }
-//     }
-//     gameContainer.append(map);
-// }
+// 승리체크 및 위너 출력 
+function checkWin(){
+    checkHori();
+    checkVeri();
+    checkDiag();
+    checkReverse();
 
+    if(win != 0){
+        if(win === 1){
+            alert(`P${win} BLACK WIN !!`);
+        }
+        else if(win === 2){
+            alert(`P${win} WHITE WIN !!`);
+        }
+    }
+}
 
-// function checkWin(){
+// 오목 가로확인 
+function checkHori(){
+    for(let i=0; i<size; i++){
+        let count = 0;
+        for(let j=0; j<size; j++){
+            const target = `y${i}x${j}`;
+            const box = map.querySelector(`#${target}`);
+            const text = box.innerText;
+            if(text === (turn == 1 ? "⚫️" : "⚪️")) {
+                console.log(count);
+                count ++;
+            }
+            else{
+                count = 0;
+            }
 
-//     // 가로
-//     win = win === 0 ? checkHori() : win;
-//     // 세로
-//     // 대각선
-//     // 다른대각선
+            if(count === 5){
+                win = turn;
+            }
+        }
+    }
+}
 
-//     if(win != 0){
-//         alert(`P${win} WIN!!!!`);
-//     }
+// 오목 세로확인 
+function checkVeri(){
+    for(let i=0; i<size; i++){
+        let count = 0;
+        for(let j=0; j<size; j++){
+            const target = `y${j}x${i}`;
+            const box = map.querySelector(`#${target}`);
+            const text = box.innerText;
+            if(text === (turn == 1 ? "⚫️" : "⚪️")){
+                count ++;
+            }
 
-// }
+            else{
+                count = 0;
+            }
 
-// function checkHori(){
-//     for(let i = 0; i<size; i++){
-//         let count = 0;
-//         for(let k = 0; k<size; k++){
-//             const target = `y${i}x${k}`;
-//             const box = map.querySelector(`#${target}`);
-//             const text = box.innerText;
-//             if(text === (turn === 1 ? "O" : "X")){
-//                 count++;
-//             }
+            if(count === 5){
+                win = turn;
+            }
+        }
+    }
+}
 
-//             if(count === size){
-//                 win = turn;
-//             }
-//         }
-//     }
-// }
+// 오목 / 확인 
+function checkDiag(){
+    for(let i=4; i<size; i++){
+        for(let j=0; j<size-4; j++){
+            const target = `y${i}x${j}`;
+            const box = map.querySelector(`#${target}`);
+            const text = box.innerText;
+            let count = 0;
+            if(text === (turn == 1 ? "⚫️" : "⚪️")){
+               for(let k=0; k<5; k++){
+                const target2 = `y${i-k}x${j+k}`;
+                const box = map.querySelector(`#${target2}`);
+                const text2 = box.innerText;
+                if(text2 === (turn == 1 ? "⚫️" : "⚪️")){
+                    count ++;
+                }
+               }
+            }
+            if(count === 5){
+                win = turn;
+            }
+        }
+    }
+}
 
-// function reset(){
-//     turn = 1;
-//     win = 0;
-//     location.reload();
-// }
+// \
+function checkReverse(){
+    for(let i=0; i<size-4; i++){
+        for(let j=0; j<size-4; j++){
+        const target = `y${i}x${j}`;
+        const box = map.querySelector(`#${target}`);
+        const text = box.innerText;
+        let count = 0;
+        if(text === (turn == 1 ? "⚫️" : "⚪️")){
+              for(let k=0; k<5; k++){
+                 const target2 = `y${i+k}x${j+k}`;
+                 const box = map.querySelector(`#${target2}`);
+                 const text2 = box.innerText;
+                if(text2 === (turn == 1 ? "⚫️" : "⚪️")){
+                    count ++;
+                  }
+             }
+        }
+        if(count === 5){
+            win = turn;
+        }
+        }
+    }
+}
+
+function gameOver(){
+    if(win != 0){
+        box.addEventListener("click", e =>{
+            alert(`게임종료되었습니다.`);
+            return;
+        })
+    };
+}
+
+function reload(){
+    turn = 1;
+    win = 0;
+    location.reload();
+}
