@@ -6,9 +6,10 @@ h1{
     text-align: center;
 }
 
-.container{
+#container{
     display: flex;
     flex-wrap: wrap;
+    width: fit-content;
     gap: 20px;
     background-color: bisque;
 }
@@ -23,3 +24,4 @@ h1{
     height: 220px;
     background-color: aquamarine;
 }
+
