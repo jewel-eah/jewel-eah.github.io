@@ -10,64 +10,62 @@ h1 {
     color :#243763;
 }
 
-
-
 button{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
 }
+
 #btn-container{
     display: flex;
     justify-content: cetner;
     padding-top: 20px;
-
-
 }
 
-
-.map{
+/* 실제 오목놓는 맵 */
+.gameMap{
     display: flex;
-    flex-wrap : wrap;
-    width: 500px;
-    height:500px;
-    margin: auto;
-    position: relative;
-}
-
-.fakeMap{ 
-    display: flex;
-    flex-wrap: wrap;
-    width: 450px;
-    height:450px;
-    margin: auto;
     position: absolute;
-    
-  
-} 
-.gridBox{
-    display:flex;
     justify-content: center;
     align-items: center;
-    width: 49px;
-    height:49px;
-    background-color: #AD8E70;
-    
+    flex-wrap : wrap;
+    width: 450px;
+    height:450px;
 }
 
 .box{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50px;
+    height:50px;
+}
+
+
+/* 가짜 바닥판 */
+.gridMap{ 
+    display: flex;
+    /* position: relative; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 500px;
+    height:500px;
+    margin: auto;
+    
+} 
+
+.gridBox{
+    display:flex;
+    background-color: #AD8E70;
     border: solid 0.5px #FFEBB7;
-     /* #2B3A55; */
     width: 49px;
     height:49px;
     
-    background-color: #AD8E70;
-    /* background-color: #CE7777; */
 }
+
+
 
 .box:hover {
     background-color: #E8C4C4;

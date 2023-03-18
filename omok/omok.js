@@ -5,32 +5,32 @@ const title = document.getElementById("title");
 title.innerText = "OMOK GAME";
 
 // 컨테이너 내 맵 생성 
-const map = document.createElement("div");
-map.className = "map";
-const fakeMap= document.createElement("div");
-fakeMap.className = "fakeMap";
+const gameMap = document.createElement("div");
+gameMap.className = "gameMap";
+const gridMap= document.createElement("div");
+gridMap.className = "gridMap";
 
 let turn = 1;
-let size = 10;
+let size = 9;
 let win = 0;
 
-setGrid();
-function setGrid(){
-    for(let i=0; i<size; i++){
-        for(let j=0; j<size; j++){
+setGridMap();
+function setGridMap(){
+    for(let i=0; i<10; i++){
+        for(let j=0; j<10; j++){
             const gridBox = document.createElement("div");
 
-            const id = `y${i}x${j}`;
-            gridBox.setAttribute("id", id);
             gridBox.className = "gridBox";
-            fakeMap.append(gridBox);
+            gridMap.append(gridBox);
         }
     }
 }
 
-// 맵을위한 10x10 박스 생성 
-setMap();
-function setMap(){
+
+// 게임진행을위한 9x9 박스 생성 
+setGameMap();
+function setGameMap(){
+    gridMap.append(gameMap);
     for(let i=0; i<size; i++){
         for(let j=0; j<size; j++){
             const box = document.createElement("div");
@@ -38,14 +38,13 @@ function setMap(){
             const id = `y${i}x${j}`;
             box.setAttribute("id", id);
             box.className = "box";
-            map.append(box);
-            map.append(fakeMap);
+            gameMap.append(box);
 
             box.addEventListener("click", e =>{
                 console.log(id);
-                
+                console.log(box.innerText);
                 if(box.innerText === ""){
-                    box.innerText = turn == 1 ? "⚫️" : "⚪️";
+                    box.innerText = (turn === 1 ? "⚫️" : "⚪️");
                 }
                 else {
                     alert(`이미 선택된 자리입니다. `);
@@ -56,12 +55,9 @@ function setMap(){
                 checkWin();
                 turn = turn === 1 ? 2 : 1 ;
             })  
-            
-        
         }
     }
-    gameContainer.append(fakeMap);
-    gameContainer.append(map);
+    gameContainer.append(gridMap);
 }
 
 // 승리체크 및 위너 출력 
@@ -87,7 +83,7 @@ function checkHori(){
         let count = 0;
         for(let j=0; j<size; j++){
             const target = `y${i}x${j}`;
-            const box = map.querySelector(`#${target}`);
+            const box = gameMap.querySelector(`#${target}`);
             const text = box.innerText;
             if(text === (turn == 1 ? "⚫️" : "⚪️")) {
                 console.log(count);
@@ -110,7 +106,7 @@ function checkVeri(){
         let count = 0;
         for(let j=0; j<size; j++){
             const target = `y${j}x${i}`;
-            const box = map.querySelector(`#${target}`);
+            const box = gameMap.querySelector(`#${target}`);
             const text = box.innerText;
             if(text === (turn == 1 ? "⚫️" : "⚪️")){
                 count ++;
@@ -132,13 +128,13 @@ function checkDiag(){
     for(let i=4; i<size; i++){
         for(let j=0; j<size-4; j++){
             const target = `y${i}x${j}`;
-            const box = map.querySelector(`#${target}`);
+            const box = gameMap.querySelector(`#${target}`);
             const text = box.innerText;
             let count = 0;
             if(text === (turn == 1 ? "⚫️" : "⚪️")){
                for(let k=0; k<5; k++){
                 const target2 = `y${i-k}x${j+k}`;
-                const box = map.querySelector(`#${target2}`);
+                const box = gameMap.querySelector(`#${target2}`);
                 const text2 = box.innerText;
                 if(text2 === (turn == 1 ? "⚫️" : "⚪️")){
                     count ++;
@@ -157,13 +153,13 @@ function checkReverse(){
     for(let i=0; i<size-4; i++){
         for(let j=0; j<size-4; j++){
         const target = `y${i}x${j}`;
-        const box = map.querySelector(`#${target}`);
+        const box = gameMap.querySelector(`#${target}`);
         const text = box.innerText;
         let count = 0;
         if(text === (turn == 1 ? "⚫️" : "⚪️")){
               for(let k=0; k<5; k++){
                  const target2 = `y${i+k}x${j+k}`;
-                 const box = map.querySelector(`#${target2}`);
+                 const box = gameMap.querySelector(`#${target2}`);
                  const text2 = box.innerText;
                 if(text2 === (turn == 1 ? "⚫️" : "⚪️")){
                     count ++;
