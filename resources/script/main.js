@@ -82,20 +82,6 @@ function addProject(project, targetContainer, imageSize, imagePosition) {
     container.append(article);
 }
 
-// Projects 
-/*
-const sample = new Project(
-    "about:blank",
-    "/resources/images/yao.gif",
-    "sample",
-    "sample sample",
-    ['ReactJS','Typescript'],
-    ['2023.03.09', "2023.04.30"]
-);
-
-addProject(sample, "frontend", "cover", "center");
-*/
-
 const bookSearch = new Project(
     "/booksearch",
     "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
@@ -106,3 +92,14 @@ const bookSearch = new Project(
 );
 
 addProject(bookSearch, "frontend", "contain", "center");
+
+const omok = new Project(
+    "/",
+    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "Omok",
+    "Omok game",
+    ['VanilaJS'],
+    ['2023.03.14', "2023.03.16"]
+);
+
+addProject(omok, "frontend", "contain", "center");

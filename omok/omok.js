@@ -7,12 +7,26 @@ title.innerText = "OMOK GAME";
 // 컨테이너 내 맵 생성 
 const map = document.createElement("div");
 map.className = "map";
-const fakeMap= document.createAttribute("div");
-fakeMap.className = "fakkeMap";
+const fakeMap= document.createElement("div");
+fakeMap.className = "fakeMap";
 
 let turn = 1;
 let size = 10;
 let win = 0;
+
+setGrid();
+function setGrid(){
+    for(let i=0; i<size; i++){
+        for(let j=0; j<size; j++){
+            const gridBox = document.createElement("div");
+
+            const id = `y${i}x${j}`;
+            gridBox.setAttribute("id", id);
+            gridBox.className = "gridBox";
+            fakeMap.append(gridBox);
+        }
+    }
+}
 
 // 맵을위한 10x10 박스 생성 
 setMap();
@@ -25,6 +39,7 @@ function setMap(){
             box.setAttribute("id", id);
             box.className = "box";
             map.append(box);
+            map.append(fakeMap);
 
             box.addEventListener("click", e =>{
                 console.log(id);
@@ -45,6 +60,7 @@ function setMap(){
         
         }
     }
+    gameContainer.append(fakeMap);
     gameContainer.append(map);
 }
 

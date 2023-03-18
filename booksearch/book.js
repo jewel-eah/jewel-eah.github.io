@@ -72,9 +72,9 @@ function searchRequest(query, page) {
           container.appendChild(card); // 검색 결과 카드 추가
         });
 
-        if(response.meta.is_end === false){
-            container.innerHTML = ""; // 검색 결과 이전 내용 초기화
-        }
+        // if(response.meta.is_end === false){
+        //     container.innerHTML = ""; // 검색 결과 이전 내용 초기화
+        // }
 
       });
 }
