@@ -95,7 +95,7 @@ addProject(bookSearch, "frontend", "contain", "center");
 
 const omok = new Project(
     "/omok",
-    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "https://png.pngtree.com/png-clipart/20220109/big/pngtree-gobang-go-board-scratch-free-material-png-image_7029706.png",
     "Omok",
     "Omok game",
     ['VanilaJS'],
