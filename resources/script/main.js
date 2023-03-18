@@ -84,7 +84,7 @@ function addProject(project, targetContainer, imageSize, imagePosition) {
 
 const bookSearch = new Project(
     "/booksearch",
-    "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
+    "https://cdn.iconscout.com/icon/premium/png-512-thumb/book-search-3559849-2978380.png?f=avif&w=512",
     "Book Search",
     "Book Search and Inquiry Service",
     ['VanilaJS', 'jQeury', 'Kakao Search API'],
