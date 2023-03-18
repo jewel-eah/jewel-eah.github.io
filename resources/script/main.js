@@ -94,7 +94,7 @@ const bookSearch = new Project(
 addProject(bookSearch, "frontend", "contain", "center");
 
 const omok = new Project(
-    "/",
+    "/omok",
     "https://em-content.zobj.net/thumbs/240/facebook/65/left-pointing-magnifying-glass_1f50d.png",
     "Omok",
     "Omok game",
