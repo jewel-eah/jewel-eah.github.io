@@ -36,6 +36,7 @@ button{
 
 .box{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 50px;
@@ -58,6 +59,7 @@ button{
 
 .gridBox{
     display:flex;
+    flex-wrap: wrap;
     background-color: #AD8E70;
     border: solid 0.5px #FFEBB7;
     width: 49px;

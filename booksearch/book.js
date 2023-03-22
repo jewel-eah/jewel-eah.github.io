@@ -5,6 +5,7 @@ const query = document.querySelector(".query");
 const searchBox = document.querySelector('.search-box');
 searchBox.addEventListener("submit", (e) => {
     e.preventDefault(); // 기본동작 방지
+    console.log("query1 : " ,query);
     if(query !== ""){
         page = 1;
         searchRequest(query.value, page);
@@ -14,13 +15,13 @@ searchBox.addEventListener("submit", (e) => {
 
 
 function searchRequest(query, page) {
-    console.log("query : " ,query);
+    console.log("query2 : " ,query);
     $.ajax({
         "url": `http://dapi.kakao.com/v3/search/book?query=${query}&page=${page}&size=${size}&target=title`,
         "method": "GET",
         "timeout": 0,
         "headers": {
-        "Authorization": "KakaoAK d14e3534986c7b2f9c0cdbb7c2bc506c"
+        "Authorization": "KakaoAK 0e90a499b95b3e020575266984575f8c"
         },
     })
     
