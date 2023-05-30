@@ -22,6 +22,7 @@ function setGridMap(){
 
             gridBox.className = "gridBox";
             gridMap.append(gridBox);
+            gameContainer.append(gameMap);
         }
     }
 }
@@ -58,6 +59,7 @@ function setGameMap(){
         }
     }
     gameContainer.append(gridMap);
+
 }
 
 // 승리체크 및 위너 출력 

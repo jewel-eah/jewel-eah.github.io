@@ -10,6 +10,12 @@ h1 {
     color :#243763;
 }
 
+#gameContainer {
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+}
+
 button{
     display: flex;
     justify-content: center;
@@ -27,11 +33,13 @@ button{
 .gameMap{
     display: flex;
     position: absolute;
+    top: 25px;
+    left: 25px;
     justify-content: center;
     align-items: center;
     flex-wrap : wrap;
     width: 450px;
-    height:450px;
+    height:400px;
 }
 
 .box{
@@ -39,20 +47,19 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height:50px;
+    width: 49px;
+    height:49px;
 }
 
 
 /* 가짜 바닥판 */
 .gridMap{ 
     display: flex;
-    /* position: relative; */
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 500px;
-    height:500px;
     margin: auto;
     
 } 
@@ -62,6 +69,7 @@ button{
     flex-wrap: wrap;
     background-color: #AD8E70;
     border: solid 0.5px #FFEBB7;
+    box-sizing: border-box;
     width: 49px;
     height:49px;
     
