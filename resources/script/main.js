@@ -84,11 +84,11 @@ function addProject(project, targetContainer, imageSize, imagePosition) {
 
 const bookSearch = new Project(
     "/booksearch",
-    "https://cdn.iconscout.com/icon/premium/png-512-thumb/book-search-3559849-2978380.png?f=avif&w=512",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_PwgPp-mHql29Pz4lPfFk9TYexkRE_Jmr5g&usqp=CAU",
     "Book Search",
     "Book Search and Inquiry Service",
     ['VanilaJS', 'jQeury', 'Kakao Search API'],
-    ['2023.03.13', "2023.03.13"]
+    ['2023.03.10', "2023.03.13"]
 );
 
 addProject(bookSearch, "frontend", "contain", "center");
@@ -103,3 +103,25 @@ const omok = new Project(
 );
 
 addProject(omok, "frontend", "contain", "center");
+
+const intranet = new Project(
+    "www.intranet-service.store",
+    "https://www.kindpng.com/picc/m/21-211349_transparent-education-icon-png-college-and-career-icon.png",
+    "Intranet",
+    "Intranet Service",
+    ['Java', 'VanilaJS' , 'Kakao Postcode API'],
+    ['2023.04.10', "2023.04.21"]
+);
+
+addProject(intranet, "frontend", "contain", "center");
+
+const campSite = new Project(
+    "http://iluvcamping.site",
+    "https://cdn-icons-png.flaticon.com/512/3365/3365326.png",
+    "I Luv Camping",
+    "Camping Reservation Site",
+    ['Spring Boot', 'VanilaJS' , 'Kakao Map API'],
+    ['2023.04.27', "2023.05.15"]
+);
+
+addProject(campSite, "frontend", "contain", "center");
