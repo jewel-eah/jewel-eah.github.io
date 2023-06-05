@@ -105,7 +105,7 @@ const omok = new Project(
 addProject(omok, "frontend", "contain", "center");
 
 const intranet = new Project(
-    "www.intranet-service.store",
+    "http://intranet-service.store",
     "https://www.kindpng.com/picc/m/21-211349_transparent-education-icon-png-college-and-career-icon.png",
     "Intranet",
     "Intranet Service",
