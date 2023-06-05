@@ -11,13 +11,12 @@ h1{
     font-family: 'Playfair Display', serif;
 }
 
-#container{
+.container{
     display: flex;
     flex-wrap: wrap;
     width: 1200px;
-    margin-top: 10%;
+    margin-top: 40px auto 40px auto;
     gap: 20px;
-    background-color: bisque;
 }
 
 .search-box{
@@ -30,28 +29,27 @@ h1{
 .result-card{
     margin: 5px 20px 5px 20px;
     width: 180px;
-    height: 220px;
-    text-align: justify;
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow: hidden;
+    height: 270px;
+    text-align: center;
 }
 
 .book-title{
-    height: 30px;
+    height: 45px;
+    margin: 0 10px 0 10px;
     overflow: hidden;
 }
 
 .book-img{
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: 174px;
+    margin-top: 6px;
 }
 
 .book-img:hover{
     cursor:grab;
 }
 
-.book-price {
+.price {
     font-size:meium;
     color : blue;
 }
@@ -85,6 +83,3 @@ h1{
   width: 200px;
   height: 25px;  
 }
-
-
-

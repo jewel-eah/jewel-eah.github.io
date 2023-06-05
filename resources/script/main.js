@@ -1,3 +1,4 @@
+
 const projectsSection = document.querySelector(".projects");
 const interestsSection = document.querySelector(".interests");
 
